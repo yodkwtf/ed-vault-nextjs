@@ -10,6 +10,7 @@ export default function Home() {
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Your vault for high quality{' '}
+            {/* TODO: change base color from slate */}
             <span className="text-slate-600">educational assets.</span>{' '}
           </h1>
           <p className="mt-6 text-lg max-w-prose text-muted-foreground">
