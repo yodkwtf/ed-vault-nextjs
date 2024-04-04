@@ -1,5 +1,6 @@
 import { LucideProps } from 'lucide-react';
 
+// TODO: change logo to your own logo
 export const Icons = {
   logo: (props: LucideProps) => (
     <svg {...props} viewBox="0 0 512 512">
