@@ -7,8 +7,27 @@ import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  AuthSchema,
+  TAuthSchema,
+} from '@/lib/validators/account-credentials-validator';
 
 const Page = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TAuthSchema>({
+    resolver: zodResolver(AuthSchema),
+  });
+
+  const onSubmit = async ({ email, password }: TAuthSchema) => {
+    // TODO: Send data to the server
+    console.log(email, password);
+  };
+
   return (
     <>
       <div className="container relative pt-20 flex flex-col items-center justify-center lg:px-0">
@@ -21,8 +40,7 @@ const Page = () => {
               href="sign-in"
               className={buttonVariants({
                 variant: 'link',
-                className:
-                  'gap-1.5 text-muted-foreground hover:text-primary-foreground',
+                className: 'gap-1.5 text-muted-foreground',
               })}
             >
               Already have an account? Sign in
@@ -31,13 +49,14 @@ const Page = () => {
           </div>
 
           <div className="grid gap-6">
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-2">
                 <div className="grid gap-1 py-2">
                   <Label htmlFor="email">Email</Label>
                   <Input
-                    className={cn('mb-2', {
-                      'focus-visible:ring-red-500': true,
+                    {...register('email')}
+                    className={cn('mt-2', {
+                      'focus-visible:ring-red-500': errors.email,
                     })}
                     placeholder="john@example.com"
                   />
@@ -46,9 +65,9 @@ const Page = () => {
                 <div className="grid gap-1 py-2">
                   <Label htmlFor="password">Password</Label>
                   <Input
-                    // TODO: Dynamic error
-                    className={cn('mb-2', {
-                      'focus-visible:ring-red-500': true,
+                    {...register('password')}
+                    className={cn('mt-2', {
+                      'focus-visible:ring-red-500': errors.password,
                     })}
                     placeholder="password"
                   />
