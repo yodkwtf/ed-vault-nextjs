@@ -13,6 +13,7 @@ import {
   AuthSchema,
   TAuthSchema,
 } from '@/lib/validators/account-credentials-validator';
+import { trpc } from '@/trpc/client';
 
 const Page = () => {
   const {
@@ -22,6 +23,9 @@ const Page = () => {
   } = useForm<TAuthSchema>({
     resolver: zodResolver(AuthSchema),
   });
+
+  const { data } = trpc.anyApiRoute.useQuery();
+  console.log(data);
 
   const onSubmit = async ({ email, password }: TAuthSchema) => {
     // TODO: Send data to the server
