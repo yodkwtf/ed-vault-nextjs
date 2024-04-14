@@ -28,12 +28,18 @@ export const authRouter = router({
       }
 
       // create user
-      const user = await payload.create({
+      await payload.create({
         collection: 'users',
         data: {
           email,
           password,
+          role: 'user',
         },
       });
+
+      return {
+        success: true,
+        sentToEmail: email,
+      };
     }),
 });

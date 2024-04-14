@@ -24,12 +24,10 @@ const Page = () => {
     resolver: zodResolver(AuthSchema),
   });
 
-  const { data } = trpc.anyApiRoute.useQuery();
-  console.log(data);
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({});
 
   const onSubmit = async ({ email, password }: TAuthSchema) => {
-    // TODO: Send data to the server
-    console.log(email, password);
+    mutate({ email, password });
   };
 
   return (
@@ -73,6 +71,7 @@ const Page = () => {
                     className={cn('mt-2', {
                       'focus-visible:ring-red-500': errors.password,
                     })}
+                    type="password"
                     placeholder="password"
                   />
                 </div>
