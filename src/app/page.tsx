@@ -1,7 +1,7 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import { Button, buttonVariants } from '@/components/ui/button';
 import Link from 'next/link';
-import { perks } from '@/data/constants';
+import { perks } from '@/config';
 
 export default function Home() {
   return (
