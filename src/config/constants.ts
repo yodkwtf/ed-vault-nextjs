@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 export const NODEMAILER_CONFIG = {
   host: 'smtp.resend.com',
   port: 465,
