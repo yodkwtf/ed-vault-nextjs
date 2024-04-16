@@ -8,7 +8,7 @@ export const Users: CollectionConfig = {
       generateEmailHTML: ({ token }) => {
         return `
           <div>
-            <p>Click the link below to verify your email address:</p>
+            <p>Click the link below to verify your email :</p>
             <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/verify-email?token=${token}">Verify Email</a>
           </div>
         `;
