@@ -9,7 +9,7 @@ export const Users: CollectionConfig = {
         return `
           <div>
             <p>Click the link below to verify your email address:</p>
-            <a href="${process.env.WEB_URL}/verify-email?token=${token}">Verify Email</a>
+            <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/verify-email?token=${token}">Verify Email</a>
           </div>
         `;
       },

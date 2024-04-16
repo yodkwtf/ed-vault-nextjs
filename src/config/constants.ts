@@ -12,6 +12,6 @@ export const NODEMAILER_CONFIG = {
 };
 
 export const EMAIL_PAYLOAD_CONFIG = {
-  fromAddress: '48durgesh.kumar@gmail.com',
-  fromName: 'EdVault - Online Marketplace for Educators',
+  fromAddress: 'onboarding@resend.dev',
+  fromName: 'EdVault Team',
 };

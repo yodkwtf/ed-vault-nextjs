@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import { slateEditor } from '@payloadcms/richtext-slate';
 import path from 'path';
 import { buildConfig } from 'payload/config';
-import { Users } from './models/User';
+import { Users } from './models/Users';
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
