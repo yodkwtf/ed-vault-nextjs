@@ -41,11 +41,10 @@ const Navbar = async () => {
                       >
                         Sign in
                       </Link>
-
                       <span
                         className="h-6 w-px bg-gray-200"
                         aria-hidden="true"
-                      ></span>
+                      />
 
                       <Link
                         href="/sign-up"
@@ -55,11 +54,10 @@ const Navbar = async () => {
                       >
                         Create account
                       </Link>
-
                       <span
                         className="h-6 w-px bg-gray-200"
                         aria-hidden="true"
-                      ></span>
+                      />
                     </>
                   )}
                 </div>

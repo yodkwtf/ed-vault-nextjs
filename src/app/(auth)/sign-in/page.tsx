@@ -5,18 +5,17 @@ import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import {
   AuthSchema,
   TAuthSchema,
 } from '@/lib/validators/account-credentials-validator';
 import { trpc } from '@/trpc/client';
-import { toast } from 'sonner';
-import { ZodError } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 const Page = () => {
   const searchParams = useSearchParams();
@@ -42,20 +41,22 @@ const Page = () => {
 
   const { mutate: signIn, isLoading } = trpc.auth.signIn.useMutation({
     onSuccess: () => {
-      toast.success('Sign in successful! Redirecting...');
-      router.refresh();
+      toast.success('Sign in successful!');
 
       if (origin) {
         router.push(origin);
+        router.refresh();
         return;
       }
 
       if (isSeller) {
         router.push('/sell');
+        router.refresh();
         return;
       }
 
       router.push('/');
+      router.refresh();
     },
     onError: (error) => {
       if (error.data?.code === 'UNAUTHORIZED') {
