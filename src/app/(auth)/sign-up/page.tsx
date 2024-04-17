@@ -14,6 +14,9 @@ import {
   TAuthSchema,
 } from '@/lib/validators/account-credentials-validator';
 import { trpc } from '@/trpc/client';
+import { toast } from 'sonner';
+import { ZodError } from 'zod';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
   const {
@@ -24,7 +27,29 @@ const Page = () => {
     resolver: zodResolver(AuthSchema),
   });
 
-  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({});
+  const router = useRouter();
+
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+    onError: (error) => {
+      if (error.data?.code === 'CONFLICT') {
+        toast.error('This email is already in use. Sign in instead?');
+        return;
+      }
+
+      if (error instanceof ZodError) {
+        toast.error(error.issues[0].message);
+        return;
+      }
+
+      toast.error('Something went wrong. Please try again later.');
+    },
+    onSuccess: ({ sentToEmail }) => {
+      toast.success(
+        `An email has been sent to ${sentToEmail}. Please verify your email to continue.`
+      );
+      router.push(`verify-email?to=${sentToEmail}`);
+    },
+  });
 
   const onSubmit = async ({ email, password }: TAuthSchema) => {
     mutate({ email, password });
@@ -62,6 +87,11 @@ const Page = () => {
                     })}
                     placeholder="john@example.com"
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="grid gap-1 py-2">
@@ -72,8 +102,13 @@ const Page = () => {
                       'focus-visible:ring-red-500': errors.password,
                     })}
                     type="password"
-                    placeholder="password"
+                    placeholder="supersecret123"
                   />
+                  {errors.password && (
+                    <p className="text-red-500 text-sm">
+                      {errors.password.message}
+                    </p>
+                  )}
                 </div>
 
                 <Button>Sign up</Button>
