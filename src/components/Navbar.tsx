@@ -6,6 +6,7 @@ import { buttonVariants } from './ui/button';
 import Cart from './Cart';
 import { getServerSideUser } from '@/lib/payload-utils';
 import { cookies } from 'next/headers';
+import UserAccountMenu from './UserAccountMenu';
 
 const Navbar = async () => {
   const nextCookies = cookies();
@@ -65,7 +66,7 @@ const Navbar = async () => {
 
                 {user && (
                   <>
-                    <p>Menu</p>
+                    <UserAccountMenu user={user} />
                     <span
                       className="h-6 w-px bg-gray-200"
                       aria-hidden="true"
