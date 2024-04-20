@@ -32,7 +32,7 @@ export const Products: CollectionConfig = {
     {
       name: 'price',
       type: 'number',
-      label: 'Price',
+      label: 'Price (in Rs.)',
       min: 0,
       max: 1_00_000,
       required: true,
