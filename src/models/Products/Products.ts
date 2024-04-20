@@ -45,15 +45,15 @@ export const Products: CollectionConfig = {
       required: true,
     },
 
-    {
-      // TODO: Create a new collection for product files
-      name: 'product_files',
-      label: 'Product File(s)',
-      type: 'relationship',
-      relationTo: 'product_files',
-      hasMany: true,
-      required: true,
-    },
+    // {
+    //   // TODO: Create a new collection for product files
+    //   name: 'product_files',
+    //   label: 'Product File(s)',
+    //   type: 'relationship',
+    //   relationTo: 'product_files',
+    //   hasMany: true,
+    //   required: true,
+    // },
     {
       name: 'approvedForSale',
       label: 'Product Status',
@@ -117,7 +117,6 @@ export const Products: CollectionConfig = {
       },
       fields: [
         {
-          // TODO: Create a new collection for media files
           name: 'image',
           type: 'upload',
           relationTo: 'media',
