@@ -15,3 +15,8 @@ export const EMAIL_PAYLOAD_CONFIG = {
   fromAddress: 'onboarding@resend.dev',
   fromName: 'EdVault Team',
 };
+
+export const QUERY_FALLBACK = {
+  limit: 4,
+  sort: 'asc',
+};
