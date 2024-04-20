@@ -76,6 +76,8 @@ export const ProductFiles: CollectionConfig = {
   },
   access: {
     read: yourOwnOrPurchasedProducts,
+    update: ({ req }) => req.user?.role === 'admin',
+    delete: ({ req }) => req.user?.role === 'admin',
   },
 
   upload: {
