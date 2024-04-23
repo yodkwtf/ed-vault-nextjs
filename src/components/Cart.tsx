@@ -37,13 +37,13 @@ const Cart = () => {
         />
 
         <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-          0
+          {itemCount}
         </span>
       </SheetTrigger>
 
       <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg">
         <SheetHeader className="space-y-2.5 pr-6">
-          <SheetTitle>Cart (0)</SheetTitle>
+          <SheetTitle>Cart ({itemCount})</SheetTitle>
         </SheetHeader>
 
         {itemCount > 0 ? (
@@ -51,7 +51,7 @@ const Cart = () => {
             <div className="flex w-full flex-col pr-6">
               <ScrollArea>
                 {items.map(({ product }) => (
-                  <CartItem key={product.id} />
+                  <CartItem key={product.id} product={product} />
                 ))}
               </ScrollArea>
             </div>
