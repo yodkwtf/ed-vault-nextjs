@@ -1,8 +1,10 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import { PRODUCT_CATEGORIES } from '@/config';
 import { useCart } from '@/hooks/use-cart';
-import { cn } from '@/lib/utils';
+import { cn, formatPrice } from '@/lib/utils';
+import { Check, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -88,8 +90,35 @@ const Page = () => {
                               </Link>
                             </h3>
                           </div>
+
+                          <div className="mt-1 flex text-sm">
+                            <p className="text-muted-foreground">
+                              Category: {category}
+                            </p>
+                          </div>
+
+                          <p className="mt-1 text-sm font-medium text-gray-900">
+                            {formatPrice(product.price)}
+                          </p>
+                        </div>
+
+                        <div className="mt-4 sm:mt-0 sm:pr-9 w-20">
+                          <div className="absolute right-0 top-0">
+                            <Button
+                              aria-label="Remove item from cart"
+                              onClick={() => removeItem(product.id)}
+                              variant="ghost"
+                            >
+                              <X className="h-5 w-5" aria-hidden="true" />
+                            </Button>
+                          </div>
                         </div>
                       </div>
+
+                      <p className="mt-4 flex space-x-2 text-sm text-gray-700">
+                        <Check className="h-5 w-5 flex-shrink-0 text-green-500" />
+                        <span>Eligible for instant delivery</span>
+                      </p>
                     </div>
                   </li>
                 );
