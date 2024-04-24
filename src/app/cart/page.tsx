@@ -37,6 +37,11 @@ const Page = () => {
                     alt="empty shopping cart"
                   />
                 </div>
+
+                <h3 className="font-semibold text-2xl">Your cart is empty</h3>
+                <p className="text-muted-foreground text-center">
+                  Whoops! Nothing to show here yet.
+                </p>
               </div>
             )}
           </div>
