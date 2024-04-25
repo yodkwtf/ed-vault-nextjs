@@ -20,3 +20,5 @@ export const QUERY_FALLBACK = {
   limit: 4,
   sort: 'asc',
 };
+
+export const TRANSACTION_FEE = 20;

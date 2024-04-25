@@ -17,6 +17,7 @@ import Image from 'next/image';
 import { useCart } from '@/hooks/use-cart';
 import CartItem from './CartItem';
 import { ScrollArea } from './ui/scroll-area';
+import { TRANSACTION_FEE } from '@/config/constants';
 
 const Cart = () => {
   const { items } = useCart();
@@ -26,7 +27,6 @@ const Cart = () => {
     (total, { product }) => total + product.price,
     0
   );
-  const transactionFee = 20;
 
   return (
     <Sheet>
@@ -64,11 +64,11 @@ const Cart = () => {
                 </div>
                 <div className="flex">
                   <span className="flex-1">Transactions Fee</span>
-                  <span>{formatPrice(transactionFee)}</span>
+                  <span>{formatPrice(TRANSACTION_FEE)}</span>
                 </div>
                 <div className="flex">
                   <span className="flex-1">Total</span>
-                  <span>{formatPrice(cartTotal + transactionFee)}</span>
+                  <span>{formatPrice(cartTotal + TRANSACTION_FEE)}</span>
                 </div>
               </div>
 

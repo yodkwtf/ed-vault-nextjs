@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { PRODUCT_CATEGORIES } from '@/config';
+import { TRANSACTION_FEE } from '@/config/constants';
 import { useCart } from '@/hooks/use-cart';
 import { cn, formatPrice } from '@/lib/utils';
 import { Check, X } from 'lucide-react';
@@ -10,6 +11,11 @@ import Link from 'next/link';
 
 const Page = () => {
   const { items, removeItem } = useCart();
+
+  const cartTotal = items.reduce(
+    (total, { product }) => total + product.price,
+    0
+  );
 
   return (
     <div className="bg-white">
@@ -125,6 +131,43 @@ const Page = () => {
               })}
             </ul>
           </div>
+
+          <section className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
+            <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
+
+            <div className="mt-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-gray-600">Subtotal</p>
+                <p className="text-sm font-medium text-gray-900">
+                  {formatPrice(cartTotal)}
+                </p>
+              </div>
+
+              <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+                <div className="flex items-center text-sm text-muted-foreground">
+                  <span>Flat Transaction Fee</span>
+                </div>
+                <div className="text-sm font-medium text-gray-900">
+                  {formatPrice(TRANSACTION_FEE)}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between border-t border-gray-200 pt-4">
+                <p className="text-base font-medium text-gray-900">
+                  Order Total
+                </p>
+                <p className="text-base font-medium text-gray-900">
+                  {formatPrice(cartTotal + TRANSACTION_FEE)}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <Button className="w-full" size="lg">
+                Proceed to checkout
+              </Button>
+            </div>
+          </section>
         </div>
       </div>
     </div>
