@@ -2,16 +2,18 @@
 
 import { Button } from '@/components/ui/button';
 import { PRODUCT_CATEGORIES } from '@/config';
-import { TRANSACTION_FEE } from '@/config/constants';
+import { DUMMY_CREDIT_CARD, TRANSACTION_FEE } from '@/config/constants';
 import { useCart } from '@/hooks/use-cart';
 import { cn, formatPrice } from '@/lib/utils';
 import { trpc } from '@/trpc/client';
-import { Check, Loader2, X } from 'lucide-react';
+import { Check, CopyIcon, Loader2, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const Page = () => {
+  const [copied, setCopied] = useState<boolean>(false);
   const { items, removeItem } = useCart();
   const productIds = items.map(({ product }) => product.id);
 
@@ -190,6 +192,36 @@ const Page = () => {
                   'Proceed to checkout'
                 )}
               </Button>
+
+              <div className="flex items-center justify-between mt-4 gap-x-2">
+                <p className="mt-4 text-sm text-gray-600">
+                  Use card{' '}
+                  <span className="font-medium text-gray-900">
+                    {DUMMY_CREDIT_CARD}
+                  </span>{' '}
+                  for testing <br /> purposes if you live in India.
+                </p>
+
+                <Button
+                  title="Copy to clipboard"
+                  className="mt-2"
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => {
+                    navigator.clipboard.writeText(DUMMY_CREDIT_CARD);
+                    setCopied(true);
+                    setTimeout(() => {
+                      setCopied(false);
+                    }, 2000);
+                  }}
+                >
+                  {copied ? (
+                    <small>Copied</small>
+                  ) : (
+                    <CopyIcon className="w-4 h-4" />
+                  )}
+                </Button>
+              </div>
             </div>
           </section>
         </div>

@@ -10,3 +10,9 @@ EdVault is a Next.js online marketplace for educators to sell their educational 
 
 - [ ] Order total is cartTotal + transactionFee. However, if we remove items from cart to make it empty, the transactionFee should be removed as well. This is not happening right now. Fix this. (Track using `cartTotal` and `transactionFee` variables.)
 - [ ] Same item can be added multiple times in the cart. This should not be allowed. If the same item is added again, show a message that item is already in the cart. Since these are digital assets, we don't need to add quantity. Just show a message that item is already in the cart.
+
+- [ ] Create a dummy user for people to test the app without creating an account (maybe show it in the nav but definitely in the signin and signup pages)
+- [ ] Finish the `/products` page
+- [ ] Create the footer section
+- [ ] Create nav for small screens
+- [ ] Check nav going berzerk on 404 page

@@ -22,3 +22,5 @@ export const QUERY_FALLBACK = {
 };
 
 export const TRANSACTION_FEE = 20;
+
+export const DUMMY_CREDIT_CARD = '4000 0035 6000 0008';
