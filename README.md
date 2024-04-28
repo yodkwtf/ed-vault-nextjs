@@ -20,3 +20,8 @@ EdVault is a Next.js online marketplace for educators to sell their educational 
 - [ ] Resend only sends verification email to an email you created your account with on resend. Figure out a way to send it to any email.
 
 - [ ] Create helper function to get orderTotal, final total, category and image url
+
+- [ ] Check why stripe webhook isn't working and payment is not getting completed
+- [ ] Deploy on vercel
+- [ ] Update the app url in metadata
+- [ ] Update the app url in stripe webhook
