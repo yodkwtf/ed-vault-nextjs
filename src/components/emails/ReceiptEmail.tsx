@@ -1,4 +1,4 @@
-import { TRANSACTION_FEE } from '@/config/constants';
+import { TRANSACTION_FEE } from '../../config/constants';
 import { Product } from '../../payload-types';
 import {
   Html,
@@ -15,8 +15,9 @@ import {
   Hr,
   render,
 } from '@react-email/components';
-import { formatPrice } from '@/lib/utils';
+import { formatPrice } from '../../lib/utils';
 import { format } from 'date-fns';
+import * as React from 'react';
 
 interface ReceiptEmailProps {
   email: string;
