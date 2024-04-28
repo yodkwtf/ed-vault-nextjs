@@ -6,7 +6,6 @@ import { Product } from './payload-types';
 import type Stripe from 'stripe';
 import { Resend } from 'resend';
 import { ReceiptEmailHtml } from './components/emails/ReceiptEmail';
-import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -53,9 +52,7 @@ export const stripeWebhookHandler = async (
 
     const [user] = users;
 
-    if (!user) {
-      return NextResponse.json({ error: 'No such user exists.' });
-    }
+    if (!user) return res.status(404).json({ error: 'No such user exists.' });
 
     const { docs: orders } = await payload.find({
       collection: 'orders',
@@ -69,9 +66,7 @@ export const stripeWebhookHandler = async (
 
     const [order] = orders;
 
-    if (!order) {
-      return NextResponse.json({ error: 'No such order exists.' });
-    }
+    if (!order) return res.status(404).json({ error: 'No such order exists.' });
 
     await payload.update({
       collection: 'orders',
@@ -88,7 +83,7 @@ export const stripeWebhookHandler = async (
     // send receipt
     try {
       const data = await resend.emails.send({
-        from: 'DigitalHippo <onboarding@resend.dev>',
+        from: 'DigitalHippo <hello@joshtriedcoding.com>',
         to: [user.email],
         subject: 'Thanks for your order! This is your receipt.',
         html: ReceiptEmailHtml({
@@ -98,11 +93,9 @@ export const stripeWebhookHandler = async (
           products: order.products as Product[],
         }),
       });
-      NextResponse.json({ data });
-      // res.status(200).json({ data });
+      res.status(200).json({ data });
     } catch (error) {
-      NextResponse.json({ error });
-      // res.status(500).json({ error });
+      res.status(500).json({ error });
     }
   }
 
