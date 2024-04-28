@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { perks } from '@/config';
 import ProductReel from '@/components/ProductReel';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <MaxWidthWrapper>
@@ -63,4 +63,6 @@ export default function Home() {
       </section>
     </>
   );
-}
+};
+
+export default Home;

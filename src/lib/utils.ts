@@ -29,7 +29,7 @@ export function getUsernameFromEmail(email: string) {
 }
 
 export function constructMetadata({
-  title = 'EdVault - An online marketplace for eduators',
+  title = 'EdVault - An online marketplace for educators',
   description = 'EdVault is an open-source marketplace for high-quality digital goods created for educators.',
   image = '/thumbnail.png',
   icons = '/favicon.ico',
