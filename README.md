@@ -16,3 +16,7 @@ EdVault is a Next.js online marketplace for educators to sell their educational 
 - [ ] Create the footer section
 - [ ] Create nav for small screens
 - [ ] Check nav going berzerk on 404 page
+
+- [ ] Resend only sends verification email to an email you created your account with on resend. Figure out a way to send it to any email.
+
+- [ ] Create helper function to get orderTotal, final total, category and image url
