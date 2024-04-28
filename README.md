@@ -25,3 +25,16 @@ EdVault is a Next.js online marketplace for educators to sell their educational 
 - [ ] Deploy on vercel
 - [ ] Update the app url in metadata
 - [ ] Update the app url in stripe webhook
+
+- [ ] Add domain for images in nextConfig.js
+
+  ```js
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    images: {
+      domains: ['localhost', 'res.cloudinary.com'],
+    },
+  };
+
+  module.exports = nextConfig;
+  ```
