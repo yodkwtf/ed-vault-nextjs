@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSideUser } from './lib/payload-utils';
 
-export async function middleware(req: NextRequest) {
+export const middleware = async (req: NextRequest) => {
   const { nextUrl, cookies } = req;
   const { user } = await getServerSideUser(cookies);
 
@@ -10,4 +10,4 @@ export async function middleware(req: NextRequest) {
   }
 
   return NextResponse.next();
-}
+};
