@@ -1,4 +1,15 @@
-import { CollectionConfig } from 'payload/types';
+import { PrimaryActionEmailHtml } from '@/components/emails/PrimaryActionEmail';
+import { Access, CollectionConfig } from 'payload/types';
+
+const adminsAndUsers: Access = ({ req: { user } }) => {
+  if (user.role === 'admin') return true;
+
+  return {
+    id: {
+      equals: user.id,
+    },
+  };
+};
 
 // Change: Named `models` instead of `collections`
 export const Users: CollectionConfig = {
@@ -6,27 +17,48 @@ export const Users: CollectionConfig = {
   auth: {
     verify: {
       generateEmailHTML: ({ token }) => {
-        return `
-          <div>
-            <p>Click the link below to verify your email :</p>
-            <a href="${process.env.NEXT_PUBLIC_SERVER_URL}/verify-email?token=${token}">Verify Email</a>
-          </div>
-        `;
+        return PrimaryActionEmailHtml({
+          actionLabel: 'verify your email address',
+          buttonText: 'Verify Your Email',
+          href: `${process.env.NEXT_PUBLIC_SERVER_URL}/verify-email?token=${token}`,
+        });
       },
     },
   },
   access: {
-    read: () => true,
+    read: adminsAndUsers,
     create: () => true,
+    update: ({ req }) => req.user.role === 'admin',
+    delete: ({ req }) => req.user.role === 'admin',
+  },
+  admin: {
+    hidden: ({ user }) => user.role !== 'admin',
+    defaultColumns: ['id'],
   },
   fields: [
     {
+      name: 'products',
+      label: 'Products',
+      admin: {
+        condition: () => false,
+      },
+      type: 'relationship',
+      relationTo: 'products',
+      hasMany: true,
+    },
+    {
+      name: 'product_files',
+      label: 'Products Files',
+      admin: {
+        condition: () => false,
+      },
+      type: 'relationship',
+      relationTo: 'product_files',
+      hasMany: true,
+    },
+    {
       name: 'role',
       required: true,
-      // admin: {
-      //   // Change: Added admin based visibility instead of just false
-      //   condition: ({ req }) => req.user.role === 'admin',
-      // },
       type: 'select',
       options: [
         { label: 'Admin', value: 'admin' },
