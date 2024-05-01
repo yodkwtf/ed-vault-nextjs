@@ -70,9 +70,15 @@ export const paymentRouter = router({
           cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
           metadata: {
             orderId: order.id,
-            user: user.id,
+            userId: user.id,
           },
           line_items,
+          payment_intent_data: {
+            metadata: {
+              userId: user.id,
+              orderId: order.id,
+            },
+          },
         });
 
         return { url: stripeSession.url };
