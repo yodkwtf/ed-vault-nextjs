@@ -17,6 +17,7 @@ export const stripeWebhookHandler = async (
   const body = webhookRequest.rawBody;
   const signature = req.headers['stripe-signature'] || '';
 
+  console.log('Webhook received:', body.toString());
   let event;
   try {
     event = stripe.webhooks.constructEvent(
@@ -24,7 +25,13 @@ export const stripeWebhookHandler = async (
       signature,
       process.env.STRIPE_WEBHOOK_SECRET || ''
     );
+
+    console.log('Webhook event:', event);
   } catch (err) {
+    console.log(
+      'Webhook Error:',
+      err instanceof Error ? err.message : 'Unknown Error'
+    );
     return res
       .status(400)
       .send(
@@ -33,6 +40,8 @@ export const stripeWebhookHandler = async (
   }
 
   const session = event.data.object as Stripe.Checkout.Session;
+
+  console.log('Session:', session);
 
   if (!session?.metadata?.userId || !session?.metadata?.orderId) {
     return res.status(400).send(`Webhook Error: No user present in metadata`);
@@ -52,6 +61,8 @@ export const stripeWebhookHandler = async (
 
     const [user] = users;
 
+    console.log('User:', user);
+
     if (!user) return res.status(404).json({ error: 'No such user exists.' });
 
     const { docs: orders } = await payload.find({
@@ -65,6 +76,8 @@ export const stripeWebhookHandler = async (
     });
 
     const [order] = orders;
+
+    console.log('Order:', order);
 
     if (!order) return res.status(404).json({ error: 'No such order exists.' });
 
@@ -95,9 +108,12 @@ export const stripeWebhookHandler = async (
       });
       res.status(200).json({ data });
     } catch (error) {
+      console.error('Error sending email:', error);
       res.status(500).json({ error });
     }
   }
+
+  console.log('Webhook handled successfully');
 
   return res.status(200).send();
 };
