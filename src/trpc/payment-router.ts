@@ -48,9 +48,6 @@ export const paymentRouter = router({
         line_items.push({
           price: product.priceId!,
           quantity: 1,
-          adjustable_quantity: {
-            enabled: false,
-          },
         });
       });
 
@@ -73,12 +70,6 @@ export const paymentRouter = router({
             userId: user.id,
           },
           line_items,
-          payment_intent_data: {
-            metadata: {
-              userId: user.id,
-              orderId: order.id,
-            },
-          },
         });
 
         return { url: stripeSession.url };
@@ -102,8 +93,8 @@ export const paymentRouter = router({
         },
       });
 
-      if (orders.length === 0) {
-        throw new TRPCError({ code: 'NOT_FOUND', message: 'No orders found' });
+      if (!orders.length) {
+        throw new TRPCError({ code: 'NOT_FOUND' });
       }
       const [order] = orders;
 
