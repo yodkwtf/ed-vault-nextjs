@@ -1,4 +1,4 @@
-# EdVault - A Next.js Online Marketplace for Educators
+# EdVault - An Online Marketplace for Educators
 
 EdVault is a full-stack online marketplace built with Next.js, designed for educators to share, sell, and purchase educational resources. Whether you're a teacher, instructor, or education professional, EdVault provides a platform to monetize your notes, solutions, books, and more.
 
