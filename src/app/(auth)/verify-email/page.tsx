@@ -23,7 +23,7 @@ const VerifyEmailPage = ({ searchParams }: PageProps) => {
             <div className="relative mb-4 h-60 w-60 text-muted-foreground">
               {/* TODO: change image for email sent page */}
               <Image
-                src="/hippo-email-sent.png"
+                src="/email-sent.png"
                 fill
                 alt="EdVault - Verification Email Image"
               />

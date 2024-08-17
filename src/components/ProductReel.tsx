@@ -65,7 +65,7 @@ const ProductReel = (props: ProductReelProps) => {
       </div>
 
       <div className="relative">
-        <div className="mt-6 flex items-center w-full">
+        <div className="mt-8 flex items-center w-full">
           <div className="w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 lg:gap-x-8">
             {productList.map((product, i) => (
               <ProductListing key={i} product={product} index={i} />

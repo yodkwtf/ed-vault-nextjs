@@ -61,7 +61,7 @@ export function constructMetadata({
       creator: '@yodkwtf',
     },
     icons,
-    metadataBase: new URL('https://digitalhippo.up.railway.app'),
+    metadataBase: new URL('https://ed-vault.up.railway.app'),
     ...(noIndex && {
       robots: {
         index: false,

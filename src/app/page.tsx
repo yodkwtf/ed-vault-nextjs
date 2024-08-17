@@ -11,8 +11,8 @@ const Home = () => {
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Your vault for high quality{' '}
-            {/* TODO: change base color from slate */}
-            <span className="text-slate-600">educational assets.</span>{' '}
+            {/* TODO: change base color from green */}
+            <span className="text-green-600">educational assets.</span>{' '}
           </h1>
           <p className="mt-6 text-lg max-w-prose text-muted-foreground">
             Welcome to EdVault. Every asset on our platform is verified by our
@@ -43,7 +43,7 @@ const Home = () => {
                 className="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
               >
                 <div className="md:flex-shrink-0 flex justify-center">
-                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-slate-100 text-slate-900">
+                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-green-100 text-green-900">
                     <perk.Icon className="w-1/3 h-1/3" />
                   </div>
                 </div>

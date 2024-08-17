@@ -55,7 +55,7 @@ const Page = () => {
                 >
                   {/* TODO: change empty cart image */}
                   <Image
-                    src="/hippo-empty-cart.png"
+                    src="/empty-cart.png"
                     fill
                     loading="eager"
                     alt="empty shopping cart"
