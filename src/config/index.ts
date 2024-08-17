@@ -23,8 +23,8 @@ export const perks = [
 
 export const PRODUCT_CATEGORIES = [
   {
-    label: 'Teaching Resources',
-    value: 'teaching_resources' as const,
+    label: 'Learning Resources',
+    value: 'learning_resources' as const,
     featured: [
       {
         name: 'Editor Picks',

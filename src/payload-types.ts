@@ -50,7 +50,7 @@ export interface Product {
   name: string;
   description?: string | null;
   price: number;
-  category: 'ui_kits' | 'icons';
+  category: 'learning_resources' | 'educational_tools';
   product_files: string | ProductFile;
   approvedForSale?: ('pending' | 'approved' | 'rejected') | null;
   priceId?: string | null;
@@ -166,7 +166,6 @@ export interface PayloadMigration {
   updatedAt: string;
   createdAt: string;
 }
-
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}
