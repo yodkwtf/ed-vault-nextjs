@@ -48,7 +48,7 @@ The app is deployed on Railway at [ed-vault.up.railway.app](https://ed-vault.up.
 3. Install Dependencies:
 
    ```bash
-    npm install
+   npm install
    ```
 
 4. Set Environment Variables:
@@ -69,19 +69,19 @@ The app is deployed on Railway at [ed-vault.up.railway.app](https://ed-vault.up.
 5. Run the Development Server:
 
    ```bash
-    npm run dev
+   npm run dev
    ```
 
 6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Deployment
 
-EdVault is optimized for deployment on [Railway](https://railway.app/). Simply connect your repository and follow the setup instructions provided by Railway. Ensure your environment variables are set in the Railway dashboard.
+EdVault is optimized for deployment on [Railway](https://railway.app/). Connect your repository and follow the setup instructions provided by Railway. Ensure your environment variables are set in the Railway dashboard.
 
 ## Contact
 
 Feel free to reach out to me at the following:
 
-- **Email:** [48durgesh.chaudhary@gmail.com](mailto:48durgesh.chaudhary@gmail.com)
+- Email: [48durgesh.chaudhary@gmail.com](mailto:48durgesh.chaudhary@gmail.com)
 - LinkedIn: [Durgesh Chaudhary](https://www.linkedin.com/in/durgesh-chaudhary/)
 - Twitter: [@yodkwtf](https://twitter.com/yodkwtf)
