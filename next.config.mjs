@@ -8,7 +8,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'ed-vault.up.railway.app',
+        hostname: 'ed-vault.vercel.app',
       },
     ],
   },
