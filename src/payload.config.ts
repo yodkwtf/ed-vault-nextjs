@@ -17,7 +17,6 @@ export default buildConfig({
   admin: {
     user: 'users',
     bundler: webpackBundler(),
-    // TODO: Update meta data for Admin Dashboard
     meta: {
       titleSuffix: ' - EdVault',
       favicon: '/favicon.ico',

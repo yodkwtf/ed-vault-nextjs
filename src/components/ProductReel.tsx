@@ -54,10 +54,9 @@ const ProductReel = (props: ProductReelProps) => {
         </div>
 
         {href && (
-          // TODO: change base color from blue
           <Link
             href={href}
-            className="hidden text-sm font-medium text-blue-600 hover:text-blue-500 md:block"
+            className="hidden text-sm font-medium text-green-600 hover:text-green-500 md:block"
           >
             Shop the collection <span aria-hidden="true">&rarr;</span>
           </Link>

@@ -1,6 +1,5 @@
 import { LucideProps } from 'lucide-react';
 
-// TODO: change logo to your own logo
 export const Icons = {
   logo: (props: LucideProps) => (
     <svg

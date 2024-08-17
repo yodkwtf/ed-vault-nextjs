@@ -53,7 +53,6 @@ const Page = () => {
                   aria-hidden="true"
                   className="relative mb-4 h-40 w-40 text-muted-foreground"
                 >
-                  {/* TODO: change empty cart image */}
                   <Image
                     src="/empty-cart.png"
                     fill

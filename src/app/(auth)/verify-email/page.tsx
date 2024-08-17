@@ -21,7 +21,6 @@ const VerifyEmailPage = ({ searchParams }: PageProps) => {
         ) : (
           <div className="flex h-full flex-col items-center justify-center space-y-1">
             <div className="relative mb-4 h-60 w-60 text-muted-foreground">
-              {/* TODO: change image for email sent page */}
               <Image
                 src="/email-sent.png"
                 fill

@@ -10,7 +10,6 @@ const Home = () => {
       <MaxWidthWrapper>
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="flex flex-col gap-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            {/* TODO: change base color from green */}
             <span className="text-green-600">404</span>
             <span>Page Not Found</span>
           </h1>

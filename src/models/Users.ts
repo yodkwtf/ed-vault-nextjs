@@ -11,7 +11,6 @@ const adminsAndUsers: Access = ({ req: { user } }) => {
   };
 };
 
-// Change: Named `models` instead of `collections`
 export const Users: CollectionConfig = {
   slug: 'users',
   auth: {

@@ -22,47 +22,46 @@ export const perks = [
 ];
 
 export const PRODUCT_CATEGORIES = [
-  // TODO: Update categories
   {
-    label: 'UI Kits',
-    value: 'ui_kits' as const,
+    label: 'Teaching Resources',
+    value: 'teaching_resources' as const,
     featured: [
       {
         name: 'Editor Picks',
         href: '#',
-        imageSrc: '/nav/ui-kits/mixed.jpg',
+        imageSrc: '/nav/editor-picks.webp',
       },
       {
         name: 'New Arrivals',
         href: '#',
-        imageSrc: '/nav/ui-kits/blue.jpg',
+        imageSrc: '/nav/new-arrivals.webp',
       },
       {
         name: 'Bestsellers',
         href: '#',
-        imageSrc: '/nav/ui-kits/purple.jpg',
+        imageSrc: '/nav/bestsellers.jpeg',
       },
     ],
   },
 
   {
-    label: 'Icons',
-    value: 'icons' as const,
+    label: 'Educational Tools',
+    value: 'educational_tools' as const,
     featured: [
       {
-        name: 'Favorite Icon Picks',
+        name: 'Editor Picks',
         href: '#',
-        imageSrc: '/nav/icons/picks.jpg',
+        imageSrc: '/nav/editor-picks.webp',
       },
       {
         name: 'New Arrivals',
         href: '#',
-        imageSrc: '/nav/icons/new.jpg',
+        imageSrc: '/nav/new-arrivals.webp',
       },
       {
-        name: 'Bestselling Icons',
+        name: 'Bestsellers',
         href: '#',
-        imageSrc: '/nav/icons/bestsellers.jpg',
+        imageSrc: '/nav/bestsellers.jpeg',
       },
     ],
   },
