@@ -32,7 +32,7 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
       <div className="flex h-full flex-col items-center justify-center">
         <div className="relative mb-4 h-60 w-60 text-muted-foreground">
           <Image
-            src="/hippo-email-sent.png"
+            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/hippo-email-sent.png`}
             fill
             alt="EdVault - The email was sent"
           />
